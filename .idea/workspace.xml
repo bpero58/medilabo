@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="86a029f3-a3b0-4431-90ed-0163f4177507" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apigateway/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apigateway/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apigateway/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apigateway/src/main/java/com/medilabo/apigateway/ApigatewayApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apigateway/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apigateway/src/test/java/com/medilabo/apigateway/ApigatewayApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demographics/notes.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/demographics.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/demographics.main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/demographics.test.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demographics/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/demographics/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demographics/src/main/java/com/medilabo/demographics/controllers/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demographics/src/main/java/com/medilabo/demographics/controllers/PatientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demographics/src/main/java/com/medilabo/demographics/domain/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/demographics/src/main/java/com/medilabo/demographics/domain/Patient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demographics/src/main/java/com/medilabo/demographics/repository/PatientRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/demographics/src/main/java/com/medilabo/demographics/repository/PatientRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demographics/src/main/java/com/medilabo/demographics/service/PatientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/demographics/src/main/java/com/medilabo/demographics/service/PatientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demographics/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/demographics/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demographics/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/demographics/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/apigateway/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/apigateway/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/apigateway/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/apigateway/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/apigateway/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/com/example/demo/DemoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/notes/src/main/java/com/medilabo/notes/NotesApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/test/java/com/example/demo/DemoApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/notes/src/test/java/com/medilabo/notes/NotesApplicationTests.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/apigateway">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/demographics">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/notes">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$/apigateway">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="apigateway" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="apigateway" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="apigateway" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="demographics" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="3FEBqDl67QwXlK2SuTfiUxnL5ft" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build apigateway.executor": "Run",
+    "Gradle.Build demographics.executor": "Run",
+    "Gradle.apigateway [build].executor": "Run",
+    "Gradle.apigateway [clean].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.ApigatewayApplication.executor": "Run",
+    "Spring Boot.DemographicsApplication.executor": "Run",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "to.speed.mode.migration.done": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="Spring Boot.DemographicsApplication">
+    <configuration name="apigateway [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/apigateway" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="apigateway [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/apigateway" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="ApigatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UnknownPolicyInFreeMode" />
+      <module name="apigateway.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.medilabo.apigateway.ApigatewayApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.medilabo.apigateway.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DemographicsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UnknownPolicyInFreeMode" />
+      <module name="demographics.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.medilabo.demographics.DemographicsApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.medilabo.demographics.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.DemographicsApplication" />
+        <item itemvalue="Spring Boot.ApigatewayApplication" />
+        <item itemvalue="Gradle.apigateway [build]" />
+        <item itemvalue="Gradle.apigateway [clean]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.31033.145" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="86a029f3-a3b0-4431-90ed-0163f4177507" name="Changes" comment="" />
+      <created>1781630537830</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1781630537830</updated>
+    </task>
+    <servers />
+  </component>
+</project>
