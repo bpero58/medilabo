@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MediLabo — Patient Demographics</title>
+  <style>
+    /* ── (all your existing CSS unchanged) ─────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue-dark:  #1e3a5f; --blue: #2563eb; --blue-light: #eff6ff;
+      --green: #16a34a; --red: #dc2626; --amber: #d97706;
+      --gray-50: #f9fafb; --gray-100: #f3f4f6; --gray-200: #e5e7eb;
+      --gray-400: #9ca3af; --gray-600: #4b5563; --gray-800: #1f2937;
+      --white: #ffffff; --radius: 8px;
+      --shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.08);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,.15);
+    }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--gray-100); color: var(--gray-800); min-height: 100vh; }
+
+    /* ── CHANGED: Header now has a right-side user area ── */
+    header {
+      background: var(--blue-dark); color: var(--white);
+      padding: 0 2rem; height: 60px;
+      display: flex; align-items: center; gap: 12px;
+      box-shadow: var(--shadow); position: sticky; top: 0; z-index: 100;
+    }
+    header svg { flex-shrink: 0; }
+    header h1 { font-size: 1.2rem; font-weight: 700; letter-spacing: .3px; }
+    header span.tagline { font-size: .8rem; opacity: .6; margin-left: 4px; }
+
+    /* Right side of header */
+    .header-right {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .user-chip {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: .85rem;
+      opacity: .9;
+    }
+    .user-chip .avatar {
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.2);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: .8rem;
+    }
+    .role-badge {
+      font-size: .72rem;
+      background: rgba(255,255,255,.15);
+      padding: 2px 8px;
+      border-radius: 999px;
+      text-transform: capitalize;
+    }
+    .btn-logout {
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.25);
+      color: var(--white);
+      padding: 5px 13px;
+      border-radius: var(--radius);
+      font-size: .82rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex; align-items: center; gap: 5px;
+      transition: background .15s;
+    }
+    .btn-logout:hover { background: rgba(255,255,255,.22); }
+
+    /* ── Rest of your existing styles (unchanged) ─── */
+    main { max-width: 1100px; margin: 2rem auto; padding: 0 1.5rem; }
+    .toolbar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 1.5rem; }
+    .search-wrap { display: flex; flex: 1; min-width: 220px; gap: 8px; }
+    .search-wrap input { flex: 1; padding: 9px 14px; border: 1px solid var(--gray-200); border-radius: var(--radius); font-size: .93rem; background: var(--white); outline: none; transition: border-color .2s; }
+    .search-wrap input:focus { border-color: var(--blue); }
+    .btn { padding: 9px 18px; border: none; border-radius: var(--radius); font-size: .9rem; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: opacity .15s, transform .1s; white-space: nowrap; }
+    .btn:active { transform: scale(.97); }
+    .btn:hover  { opacity: .88; }
+    .btn-primary { background: var(--blue);    color: var(--white); }
+    .btn-success { background: var(--green);   color: var(--white); }
+    .btn-danger  { background: var(--red);     color: var(--white); }
+    .btn-ghost   { background: var(--gray-200); color: var(--gray-800); }
+    .btn-sm      { padding: 5px 11px; font-size: .82rem; }
+    .card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+    table { width: 100%; border-collapse: collapse; }
+    thead th { background: var(--blue-dark); color: var(--white); text-align: left; padding: 12px 16px; font-size: .82rem; font-weight: 600; letter-spacing: .5px; text-transform: uppercase; }
+    tbody tr { border-bottom: 1px solid var(--gray-100); transition: background .15s; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: var(--blue-light); }
+    td { padding: 12px 16px; font-size: .9rem; vertical-align: middle; }
+    .badge { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: .78rem; font-weight: 600; }
+    .badge-M { background: #dbeafe; color: #1d4ed8; }
+    .badge-F { background: #fce7f3; color: #be185d; }
+    .badge-O { background: var(--gray-100); color: var(--gray-600); }
+    .actions { display: flex; gap: 6px; }
+    .state-box { text-align: center; padding: 3rem 1rem; color: var(--gray-400); }
+    .state-box p { font-size: .95rem; }
+    .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.45); z-index: 200; align-items: center; justify-content: center; }
+    .overlay.open { display: flex; }
+    .modal { background: var(--white); border-radius: 12px; box-shadow: var(--shadow-lg); width: 100%; max-width: 520px; padding: 2rem; position: relative; animation: pop .2s ease; }
+    @keyframes pop { from { transform: scale(.93); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    .modal h2 { font-size: 1.15rem; font-weight: 700; color: var(--blue-dark); margin-bottom: 1.4rem; display: flex; align-items: center; gap: 8px; }
+    .modal-close { position: absolute; top: 14px; right: 16px; background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--gray-400); line-height: 1; }
+    .modal-close:hover { color: var(--gray-800); }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 5px; }
+    .form-group.full { grid-column: 1 / -1; }
+    label { font-size: .8rem; font-weight: 600; color: var(--gray-600); text-transform: uppercase; letter-spacing: .4px; }
+    input, select, textarea { padding: 9px 12px; border: 1px solid var(--gray-200); border-radius: var(--radius); font-size: .93rem; outline: none; background: var(--gray-50); transition: border-color .2s, background .2s; font-family: inherit; }
+    input:focus, select:focus, textarea:focus { border-color: var(--blue); background: var(--white); }
+    .modal-footer { display: flex; justify-content: flex-end; gap: 10px; margin-top: 1.6rem; }
+    .detail-row { display: flex; padding: 8px 0; border-bottom: 1px solid var(--gray-100); gap: 12px; }
+    .detail-row:last-child { border-bottom: none; }
+    .detail-label { min-width: 130px; font-size: .8rem; font-weight: 600; color: var(--gray-400); text-transform: uppercase; letter-spacing: .4px; padding-top: 2px; }
+    .detail-value { font-size: .93rem; }
+    #toast { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 999; display: flex; flex-direction: column; gap: 8px; }
+    .toast-msg { padding: 12px 18px; border-radius: var(--radius); font-size: .88rem; font-weight: 600; color: var(--white); box-shadow: var(--shadow-lg); animation: slideIn .25s ease; }
+    .toast-success { background: var(--green); }
+    .toast-error   { background: var(--red); }
+    @keyframes slideIn { from { transform: translateX(60px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+    .summary { font-size: .85rem; color: var(--gray-600); margin-bottom: .6rem; }
+    @media (max-width: 640px) {
+      .form-grid { grid-template-columns: 1fr; }
+      thead th:nth-child(3), thead th:nth-child(4), td:nth-child(3), td:nth-child(4) { display: none; }
+      .user-chip .name, .role-badge { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Header (CHANGED: added user chip + logout) ─── -->
+<header>
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+       stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+  </svg>
+  <h1>MediLabo <span class="tagline">Patient Demographics</span></h1>
+
+  <!-- Right side -->
+  <div class="header-right">
+    <div class="user-chip">
+      <div class="avatar" id="userAvatar">?</div>
+      <span class="name" id="usernameDisplay">—</span>
+      <span class="role-badge" id="roleDisplay"></span>
+    </div>
+    <button class="btn-logout" onclick="logout()">
+      🔓 Sign Out
+    </button>
+  </div>
+</header>
+
+<!-- ── Main (unchanged) ──────────────────────────── -->
+<main>
+  <div class="toolbar">
+    <div class="search-wrap">
+      <input id="searchInput" type="text" placeholder="Search by last name…" />
+      <button class="btn btn-ghost" onclick="searchPatients()">🔍 Search</button>
+      <button class="btn btn-ghost" onclick="loadAllPatients()">↺ Reset</button>
+    </div>
+    <button class="btn btn-success" onclick="openAddModal()">＋ Add Patient</button>
+  </div>
+  <p class="summary" id="summary">Loading patients…</p>
+  <div class="card">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th><th>Last Name</th><th>First Name</th>
+          <th>Date of Birth</th><th>Gender</th><th>Phone</th><th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="patientTable">
+        <tr><td colspan="7"><div class="state-box"><p>Loading…</p></div></td></tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+
+<div id="toast"></div>
+
+<!-- Modal: Add / Edit -->
+<div class="overlay" id="formOverlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('formOverlay')">✕</button>
+    <h2 id="formTitle">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+        <circle cx="12" cy="7" r="4"/>
+      </svg>
+      Add Patient
+    </h2>
+    <form id="patientForm" onsubmit="submitForm(event)">
+      <input type="hidden" id="patientId" />
+      <div class="form-grid">
+        <div class="form-group"><label for="firstName">First Name</label><input id="firstName" type="text" required placeholder="Jane" /></div>
+        <div class="form-group"><label for="lastName">Last Name</label><input id="lastName" type="text" required placeholder="Doe" /></div>
+        <div class="form-group"><label for="dateOfBirth">Date of Birth</label><input id="dateOfBirth" type="date" required /></div>
+        <div class="form-group">
+          <label for="gender">Gender</label>
+          <select id="gender" required>
+            <option value="">Select…</option>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group"><label for="phone">Phone</label><input id="phone" type="tel" placeholder="555-123-4567" /></div>
+        <div class="form-group full"><label for="address">Address</label><input id="address" type="text" placeholder="123 Main St, City, State" /></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-ghost" onclick="closeModal('formOverlay')">Cancel</button>
+        <button type="submit" class="btn btn-primary" id="formSubmitBtn">Save Patient</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Modal: Detail -->
+<div class="overlay" id="detailOverlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('detailOverlay')">✕</button>
+    <h2>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="8" x2="12" y2="12"/>
+        <line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+      Patient Details
+    </h2>
+    <div id="detailContent"></div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeModal('detailOverlay')">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════ -->
+<script>
+  const API = "http://localhost:8081/patients"; // Routes requests through gateway instead of directly to the backend 
+
+  // ── CHANGED: Auth bootstrap ──────────────────────────
+  // Retrieve token from either storage (sessionStorage first)
+  function getToken() {
+    return sessionStorage.getItem('ml_token') || localStorage.getItem('ml_token');
+  }
+
+  function getUser() {
+    return {
+      username: sessionStorage.getItem('ml_username') || localStorage.getItem('ml_username') || '?',
+      role:     sessionStorage.getItem('ml_role')     || localStorage.getItem('ml_role')     || '',
+    };
+  }
+
+  // Guard: redirect to login if no token, verify with server
+  async function requireAuth() {
+    const token = getToken();
+    if (!token) {
+      window.location.href = '/login';
+      return false;
+    }
+    return true;
+  }
+
+  function clearAuth() {
+    ['ml_token', 'ml_username', 'ml_role'].forEach(k => {
+      sessionStorage.removeItem(k);
+      localStorage.removeItem(k);
+    });
+  }
+
+  async function logout() {
+    clearAuth();
+    window.location.href = '/login'
+  }
+
+  // Populate user info in header
+  function renderUserChip() {
+    const { username, role } = getUser();
+    document.getElementById('userAvatar').textContent    = username.charAt(0).toUpperCase();
+    document.getElementById('usernameDisplay').textContent = username;
+    document.getElementById('roleDisplay').textContent   = role;
+  }
+
+  // ── CHANGED: apiFetch now attaches the Bearer token ──
+  async function apiFetch(url, options = {}) {
+    const token = getToken();
+    const res = await fetch(url, {
+      headers: {
+        "Content-Type":  "application/json",
+        "Authorization": token ? `Bearer ${token}` : '',
+        ...(options.headers || {}),
+      },
+      ...options,
+    });
+
+    // Auto-redirect on auth failures
+    if (res.status === 401) {
+      toast("Session expired — please sign in again.", "error");
+      setTimeout(() => { clearAuth(); window.location.href = '/login'; }, 1800);
+      throw new Error('Unauthorized');
+    }
+
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    if (res.status === 204) return null;
+    return res.json();
+  }
+
+  // ── Toast ──────────────────────────────────────────
+  function toast(msg, type = "success") {
+    const el = document.createElement("div");
+    el.className = `toast-msg toast-${type}`;
+    el.textContent = msg;
+    document.getElementById("toast").appendChild(el);
+    setTimeout(() => el.remove(), 3500);
+  }
+
+  // ── All the original functions below — UNCHANGED ────
+  async function loadAllPatients() {
+    document.getElementById("searchInput").value = "";
+    try {
+      const patients = await apiFetch(API);
+      renderTable(patients);
+    } catch (e) {
+      if (e.message !== 'Unauthorized')
+        renderError("Could not load patients. Is the backend running?");
+    }
+  }
+
+  async function searchPatients() {
+    const lastName = document.getElementById("searchInput").value.trim();
+    if (!lastName) { loadAllPatients(); return; }
+    try {
+      const patients = await apiFetch(`${API}/search?lastName=${encodeURIComponent(lastName)}`);
+      renderTable(patients, `Results for "${lastName}"`);
+    } catch (e) {
+      if (e.message !== 'Unauthorized') renderError("Search failed.");
+    }
+  }
+
+  document.getElementById("searchInput").addEventListener("keydown", e => {
+    if (e.key === "Enter") searchPatients();
+  });
+
+  function renderTable(patients, label) {
+    const tbody = document.getElementById("patientTable");
+    const summary = document.getElementById("summary");
+    summary.textContent = label
+      ? `${patients.length} patient(s) — ${label}`
+      : `${patients.length} patient(s) total`;
+    if (!patients.length) {
+      tbody.innerHTML = `<tr><td colspan="7"><div class="state-box"><p>No patients found.</p></div></td></tr>`;
+      return;
+    }
+    tbody.innerHTML = patients.map(p => `
+      <tr>
+        <td><strong>#${p.id}</strong></td>
+        <td>${esc(p.lastName)}</td>
+        <td>${esc(p.firstName)}</td>
+        <td>${formatDate(p.dateOfBirth)}</td>
+        <td>${genderBadge(p.gender)}</td>
+        <td>${esc(p.phone ?? '—')}</td>
+        <td>
+          <div class="actions">
+            <button class="btn btn-ghost btn-sm" onclick="viewPatient(${p.id})">👁 View</button>
+            <button class="btn btn-primary btn-sm" onclick="openEditModal(${p.id})">✏ Edit</button>
+          </div>
+        </td>
+      </tr>
+    `).join("");
+  }
+
+  function renderError(msg) {
+    document.getElementById("patientTable").innerHTML =
+      `<tr><td colspan="7"><div class="state-box"><p>⚠️ ${msg}</p></div></td></tr>`;
+    document.getElementById("summary").textContent = "";
+  }
+
+  async function viewPatient(id) {
+    try {
+      const p = await apiFetch(`${API}/${id}`);
+      document.getElementById("detailContent").innerHTML = `
+        ${row("ID",            `#${p.id}`)}
+        ${row("First Name",    esc(p.firstName))}
+        ${row("Last Name",     esc(p.lastName))}
+        ${row("Date of Birth", formatDate(p.dateOfBirth))}
+        ${row("Gender",        genderBadge(p.gender))}
+        ${row("Phone",         esc(p.phone ?? '—'))}
+        ${row("Address",       esc(p.address ?? '—'))}
+      `;
+      openModal("detailOverlay");
+    } catch (e) {
+      if (e.message !== 'Unauthorized') toast("Could not load patient details.", "error");
+    }
+  }
+
+  function row(label, value) {
+    return `<div class="detail-row"><div class="detail-label">${label}</div><div class="detail-value">${value}</div></div>`;
+  }
+
+  function openAddModal() {
+    document.getElementById("patientForm").reset();
+    document.getElementById("patientId").value = "";
+    document.getElementById("formTitle").lastChild.textContent = " Add Patient";
+    document.getElementById("formSubmitBtn").textContent = "Save Patient";
+    openModal("formOverlay");
+  }
+
+  async function openEditModal(id) {
+    try {
+      const p = await apiFetch(`${API}/${id}`);
+      document.getElementById("patientId").value   = p.id;
+      document.getElementById("firstName").value   = p.firstName  ?? "";
+      document.getElementById("lastName").value    = p.lastName   ?? "";
+      document.getElementById("dateOfBirth").value = p.dateOfBirth ?? "";
+      document.getElementById("gender").value      = p.gender     ?? "";
+      document.getElementById("phone").value       = p.phone      ?? "";
+      document.getElementById("address").value     = p.address    ?? "";
+      document.getElementById("formTitle").lastChild.textContent = ` Edit Patient #${p.id}`;
+      document.getElementById("formSubmitBtn").textContent = "Update Patient";
+      openModal("formOverlay");
+    } catch (e) {
+      if (e.message !== 'Unauthorized') toast("Could not load patient for editing.", "error");
+    }
+  }
+
+  async function submitForm(e) {
+    e.preventDefault();
+    const id = document.getElementById("patientId").value;
+    const body = {
+      firstName:   document.getElementById("firstName").value.trim(),
+      lastName:    document.getElementById("lastName").value.trim(),
+      dateOfBirth: document.getElementById("dateOfBirth").value,
+      gender:      document.getElementById("gender").value,
+      phone:       document.getElementById("phone").value.trim() || null,
+      address:     document.getElementById("address").value.trim() || null,
+    };
+    try {
+      if (id) {
+        await apiFetch(`${API}/${id}`, { method: "PUT", body: JSON.stringify(body) });
+        toast("Patient updated successfully.");
+      } else {
+        await apiFetch(API, { method: "POST", body: JSON.stringify(body) });
+        toast("Patient added successfully.");
+      }
+      closeModal("formOverlay");
+      loadAllPatients();
+    } catch (e) {
+      if (e.message !== 'Unauthorized') toast("Failed to save patient.", "error");
+    }
+  }
+
+  function openModal(id)  { document.getElementById(id).classList.add("open"); }
+  function closeModal(id) { document.getElementById(id).classList.remove("open"); }
+
+  document.querySelectorAll(".overlay").forEach(o => {
+    o.addEventListener("click", e => { if (e.target === o) o.classList.remove("open"); });
+  });
+
+  function esc(str) {
+    const d = document.createElement("div"); d.textContent = str; return d.innerHTML;
+  }
+
+  function formatDate(d) {
+    if (!d) return "—";
+    if (Array.isArray(d)) {
+      const [y, m, day] = d;
+      return new Date(y, m - 1, day).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
+    }
+    return new Date(d).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
+  }
+
+  function genderBadge(g) {
+    const cls   = g === "M" ? "badge-M" : g === "F" ? "badge-F" : "badge-O";
+    const label = g === "M" ? "Male"    : g === "F" ? "Female"  : (g ?? "—");
+    return `<span class="badge ${cls}">${label}</span>`;
+  }
+
+  // ── CHANGED: Init — auth check before loading data ──
+  (async () => {
+    const authed = await requireAuth();
+    if (authed) {
+      renderUserChip();
+      loadAllPatients();
+    }
+  })();
+</script>
+</body>
+</html>
