@@ -5,11 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MediLabo — Patient Demographics</title>
   <style>
-    /* ── (all your existing CSS unchanged) ─────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --blue-dark:  #1e3a5f; --blue: #2563eb; --blue-light: #eff6ff;
-      --green: #16a34a; --red: #dc2626; --amber: #d97706;
+      --green: #16a34a; --red: #dc2626; --amber: #d97706; --orange: #ea580c;
       --gray-50: #f9fafb; --gray-100: #f3f4f6; --gray-200: #e5e7eb;
       --gray-400: #9ca3af; --gray-600: #4b5563; --gray-800: #1f2937;
       --white: #ffffff; --radius: 8px;
@@ -18,7 +17,6 @@
     }
     body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--gray-100); color: var(--gray-800); min-height: 100vh; }
 
-    /* ── CHANGED: Header now has a right-side user area ── */
     header {
       background: var(--blue-dark); color: var(--white);
       padding: 0 2rem; height: 60px;
@@ -29,7 +27,6 @@
     header h1 { font-size: 1.2rem; font-weight: 700; letter-spacing: .3px; }
     header span.tagline { font-size: .8rem; opacity: .6; margin-left: 4px; }
 
-    /* Right side of header */
     .header-right {
       margin-left: auto;
       display: flex;
@@ -71,7 +68,6 @@
     }
     .btn-logout:hover { background: rgba(255,255,255,.22); }
 
-    /* ── Rest of your existing styles (unchanged) ─── */
     main { max-width: 1100px; margin: 2rem auto; padding: 0 1.5rem; }
     .toolbar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 1.5rem; }
     .search-wrap { display: flex; flex: 1; min-width: 220px; gap: 8px; }
@@ -84,6 +80,7 @@
     .btn-success { background: var(--green);   color: var(--white); }
     .btn-danger  { background: var(--red);     color: var(--white); }
     .btn-ghost   { background: var(--gray-200); color: var(--gray-800); }
+    .btn-warn    { background: var(--amber);   color: var(--white); }
     .btn-sm      { padding: 5px 11px; font-size: .82rem; }
     .card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
     table { width: 100%; border-collapse: collapse; }
@@ -96,7 +93,15 @@
     .badge-M { background: #dbeafe; color: #1d4ed8; }
     .badge-F { background: #fce7f3; color: #be185d; }
     .badge-O { background: var(--gray-100); color: var(--gray-600); }
-    .actions { display: flex; gap: 6px; }
+
+    /* Risk assessment badges */
+    .badge-risk-none      { background: #dcfce7; color: #15803d; }
+    .badge-risk-borderline{ background: #fef3c7; color: #b45309; }
+    .badge-risk-danger    { background: #ffedd5; color: #c2410c; }
+    .badge-risk-early     { background: #fee2e2; color: #b91c1c; }
+    .badge-risk-unknown   { background: var(--gray-100); color: var(--gray-600); }
+
+    .actions { display: flex; gap: 6px; flex-wrap: wrap; }
     .state-box { text-align: center; padding: 3rem 1rem; color: var(--gray-400); }
     .state-box p { font-size: .95rem; }
     .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.45); z-index: 200; align-items: center; justify-content: center; }
@@ -123,6 +128,30 @@
     .toast-error   { background: var(--red); }
     @keyframes slideIn { from { transform: translateX(60px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
     .summary { font-size: .85rem; color: var(--gray-600); margin-bottom: .6rem; }
+
+    .notes-section { margin-top: 1.5rem; border-top: 1px solid var(--gray-200); padding-top: 1rem; }
+    .notes-section h3 { font-size: .95rem; font-weight: 700; color: var(--blue-dark); margin-bottom: .8rem; display: flex; align-items: center; gap: 6px; }
+    .notes-list { max-height: 220px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; margin-bottom: 1rem; }
+    .note-card { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 10px 12px; }
+    .note-card-header { display: flex; justify-content: space-between; margin-bottom: 4px; }
+    .note-author { font-size: .82rem; color: var(--blue-dark); font-weight: 700; }
+    .note-timestamp { font-size: .75rem; color: var(--gray-400); }
+    .note-content { font-size: .88rem; white-space: pre-wrap; }
+    .note-form { display: flex; flex-direction: column; gap: 8px; }
+    .note-form textarea { resize: vertical; }
+    .note-form button { align-self: flex-end; }
+
+    /* Assessment section */
+    .assessment-section { margin-top: 1.5rem; border-top: 1px solid var(--gray-200); padding-top: 1rem; }
+    .assessment-section h3 { font-size: .95rem; font-weight: 700; color: var(--blue-dark); margin-bottom: .8rem; display: flex; align-items: center; gap: 6px; }
+    .assessment-box {
+      display: flex; align-items: center; justify-content: space-between;
+      background: var(--gray-50); border: 1px solid var(--gray-200);
+      border-radius: var(--radius); padding: 14px 16px;
+    }
+    .assessment-risk-label { font-size: .8rem; font-weight: 600; color: var(--gray-400); text-transform: uppercase; letter-spacing: .4px; margin-bottom: 4px; }
+    .risk-badge { display: inline-block; padding: 5px 14px; border-radius: 999px; font-size: .9rem; font-weight: 700; }
+
     @media (max-width: 640px) {
       .form-grid { grid-template-columns: 1fr; }
       thead th:nth-child(3), thead th:nth-child(4), td:nth-child(3), td:nth-child(4) { display: none; }
@@ -132,7 +161,6 @@
 </head>
 <body>
 
-<!-- ── Header (CHANGED: added user chip + logout) ─── -->
 <header>
   <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
        stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -140,7 +168,6 @@
   </svg>
   <h1>MediLabo <span class="tagline">Patient Demographics</span></h1>
 
-  <!-- Right side -->
   <div class="header-right">
     <div class="user-chip">
       <div class="avatar" id="userAvatar">?</div>
@@ -153,7 +180,6 @@
   </div>
 </header>
 
-<!-- ── Main (unchanged) ──────────────────────────── -->
 <main>
   <div class="toolbar">
     <div class="search-wrap">
@@ -181,7 +207,6 @@
 
 <div id="toast"></div>
 
-<!-- Modal: Add / Edit -->
 <div class="overlay" id="formOverlay">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('formOverlay')">✕</button>
@@ -218,7 +243,6 @@
   </div>
 </div>
 
-<!-- Modal: Detail -->
 <div class="overlay" id="detailOverlay">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('detailOverlay')">✕</button>
@@ -231,18 +255,43 @@
       Patient Details
     </h2>
     <div id="detailContent"></div>
+
+    <div class="assessment-section">
+      <h3>🩺 Diabetes Risk Assessment</h3>
+      <div class="assessment-box">
+        <div>
+          <div class="assessment-risk-label">Current Risk Level</div>
+          <span class="risk-badge badge-risk-unknown" id="riskBadge">Not assessed</span>
+        </div>
+        <button class="btn btn-warn btn-sm" id="assessBtn" onclick="runAssessment()">⟳ Run Assessment</button>
+      </div>
+    </div>
+
+    <div class="notes-section">
+      <h3>📝 Clinical Notes</h3>
+      <div id="notesList" class="notes-list">
+        <p class="state-box" style="padding: 1rem;">Loading notes…</p>
+      </div>
+      <form id="noteForm" onsubmit="submitNote(event)" class="note-form">
+        <input type="hidden" id="notePatientId" />
+        <textarea id="noteContent" rows="2" placeholder="Add a clinical note…" required></textarea>
+        <button type="submit" class="btn btn-primary btn-sm">＋ Add Note</button>
+      </form>
+    </div>
+
     <div class="modal-footer">
       <button class="btn btn-ghost" onclick="closeModal('detailOverlay')">Close</button>
     </div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════════════ -->
 <script>
-  const API = "http://localhost:8081/patients"; // Routes requests through gateway instead of directly to the backend 
+  const API = "http://localhost:8080/patients";
+  const NOTES_API = "http://localhost:8080/api/notes";
+  const ASSESSMENT_API = "http://localhost:8080/assess";
 
-  // ── CHANGED: Auth bootstrap ──────────────────────────
-  // Retrieve token from either storage (sessionStorage first)
+  let currentDetailPatientId = null;
+
   function getToken() {
     return sessionStorage.getItem('ml_token') || localStorage.getItem('ml_token');
   }
@@ -254,7 +303,6 @@
     };
   }
 
-  // Guard: redirect to login if no token, verify with server
   async function requireAuth() {
     const token = getToken();
     if (!token) {
@@ -276,7 +324,6 @@
     window.location.href = '/login'
   }
 
-  // Populate user info in header
   function renderUserChip() {
     const { username, role } = getUser();
     document.getElementById('userAvatar').textContent    = username.charAt(0).toUpperCase();
@@ -284,7 +331,6 @@
     document.getElementById('roleDisplay').textContent   = role;
   }
 
-  // ── CHANGED: apiFetch now attaches the Bearer token ──
   async function apiFetch(url, options = {}) {
     const token = getToken();
     const res = await fetch(url, {
@@ -296,7 +342,6 @@
       ...options,
     });
 
-    // Auto-redirect on auth failures
     if (res.status === 401) {
       toast("Session expired — please sign in again.", "error");
       setTimeout(() => { clearAuth(); window.location.href = '/login'; }, 1800);
@@ -308,7 +353,6 @@
     return res.json();
   }
 
-  // ── Toast ──────────────────────────────────────────
   function toast(msg, type = "success") {
     const el = document.createElement("div");
     el.className = `toast-msg toast-${type}`;
@@ -317,7 +361,6 @@
     setTimeout(() => el.remove(), 3500);
   }
 
-  // ── All the original functions below — UNCHANGED ────
   async function loadAllPatients() {
     document.getElementById("searchInput").value = "";
     try {
@@ -361,7 +404,8 @@
         <td>${esc(p.firstName)}</td>
         <td>${formatDate(p.dateOfBirth)}</td>
         <td>${genderBadge(p.gender)}</td>
-        <td>${esc(p.phone ?? '—')}</td>
+        <td
+                <td>${esc(p.phone ?? '—')}</td>
         <td>
           <div class="actions">
             <button class="btn btn-ghost btn-sm" onclick="viewPatient(${p.id})">👁 View</button>
@@ -381,6 +425,7 @@
   async function viewPatient(id) {
     try {
       const p = await apiFetch(`${API}/${id}`);
+      currentDetailPatientId = p.id;
       document.getElementById("detailContent").innerHTML = `
         ${row("ID",            `#${p.id}`)}
         ${row("First Name",    esc(p.firstName))}
@@ -390,7 +435,10 @@
         ${row("Phone",         esc(p.phone ?? '—'))}
         ${row("Address",       esc(p.address ?? '—'))}
       `;
+      document.getElementById("notePatientId").value = p.id;
+      resetAssessmentBox();
       openModal("detailOverlay");
+      loadNotesForPatient(p.id);
     } catch (e) {
       if (e.message !== 'Unauthorized') toast("Could not load patient details.", "error");
     }
@@ -399,6 +447,102 @@
   function row(label, value) {
     return `<div class="detail-row"><div class="detail-label">${label}</div><div class="detail-value">${value}</div></div>`;
   }
+
+  async function loadNotesForPatient(patientId) {
+    const list = document.getElementById("notesList");
+    list.innerHTML = `<p class="state-box" style="padding: 1rem;">Loading notes…</p>`;
+    try {
+      const notes = await apiFetch(`${NOTES_API}/patient/${patientId}`);
+      if (!notes.length) {
+        list.innerHTML = `<p class="state-box" style="padding: 1rem;">No notes yet.</p>`;
+        return;
+      }
+      list.innerHTML = notes.map(n => `
+        <div class="note-card">
+          <div class="note-card-header">
+            <span class="note-author">${esc(n.physicianUsername)}</span>
+            <span class="note-timestamp">${formatDate(n.createdAt)}</span>
+          </div>
+          <div class="note-content">${esc(n.content)}</div>
+        </div>
+      `).join("");
+    } catch (e) {
+      if (e.message !== 'Unauthorized')
+        list.innerHTML = `<p class="state-box" style="padding: 1rem;">⚠️ Could not load notes.</p>`;
+    }
+  }
+
+  async function submitNote(e) {
+    e.preventDefault();
+    const patientId = document.getElementById("notePatientId").value;
+    const content = document.getElementById("noteContent").value.trim();
+    if (!content) return;
+
+    const body = {
+      patientId: Number(patientId),
+      physicianUsername: getUser().username,
+      content: content,
+    };
+
+    try {
+      await apiFetch(NOTES_API, { method: "POST", body: JSON.stringify(body) });
+      document.getElementById("noteContent").value = "";
+      toast("Note added.");
+      loadNotesForPatient(patientId);
+    } catch (e) {
+      if (e.message !== 'Unauthorized') toast("Failed to add note.", "error");
+    }
+  }
+
+  // ---- Assessment logic ----
+
+  function resetAssessmentBox() {
+    const badge = document.getElementById("riskBadge");
+    badge.className = "risk-badge badge-risk-unknown";
+    badge.textContent = "Not assessed";
+    document.getElementById("assessBtn").disabled = false;
+    document.getElementById("assessBtn").textContent = "⟳ Run Assessment";
+  }
+
+  function riskBadgeClass(risk) {
+    if (!risk) return "badge-risk-unknown";
+    const r = risk.toLowerCase();
+    if (r.includes("none")) return "badge-risk-none";
+    if (r.includes("border")) return "badge-risk-borderline";
+    if (r.includes("danger")) return "badge-risk-danger";
+    if (r.includes("early")) return "badge-risk-early";
+    return "badge-risk-unknown";
+  }
+
+  async function runAssessment() {
+    if (!currentDetailPatientId) return;
+    const badge = document.getElementById("riskBadge");
+    const btn = document.getElementById("assessBtn");
+
+    btn.disabled = true;
+    btn.textContent = "⏳ Assessing…";
+    badge.className = "risk-badge badge-risk-unknown";
+    badge.textContent = "Assessing…";
+
+    try {
+      const result = await apiFetch(`${ASSESSMENT_API}/${currentDetailPatientId}`);
+      const risk = result.risk ?? result.riskLevel ?? result.assessment ?? "Unknown";
+      badge.className = `risk-badge ${riskBadgeClass(risk)}`;
+      badge.textContent = risk;
+      toast("Assessment complete.");
+    } catch (e) {
+      if (e.message !== 'Unauthorized') {
+        badge.className = "risk-badge badge-risk-unknown";
+        badge.textContent = "Assessment failed";
+        toast("Could not complete assessment.", "error");
+      }
+    } finally {
+      btn.disabled = false;
+      btn.textContent = "⟳ Run Assessment";
+    }
+  }
+
+  // ---- Patient CRUD ----
 
   function openAddModal() {
     document.getElementById("patientForm").reset();
@@ -478,7 +622,6 @@
     return `<span class="badge ${cls}">${label}</span>`;
   }
 
-  // ── CHANGED: Init — auth check before loading data ──
   (async () => {
     const authed = await requireAuth();
     if (authed) {
@@ -489,3 +632,4 @@
 </script>
 </body>
 </html>
+

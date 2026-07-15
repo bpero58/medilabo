@@ -19,7 +19,7 @@ public class Note {
         return id;
     }
 
-    public Long getPatientid() {
+    public Long getPatientId() {
         return patientId;
     }
 

@@ -13,6 +13,14 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/assessment" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/assessment" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/demographics" />
         <option name="gradleJvm" value="C:\Users\BPERO\.jdks\openjdk-17.0.x" />
         <option name="modules">

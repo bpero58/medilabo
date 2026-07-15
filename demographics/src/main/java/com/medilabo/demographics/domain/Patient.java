@@ -36,6 +36,7 @@ public class Patient {
     }
 
     // --- Full Constructor ---
+    //This is the patient object Java will use
     public Patient(String lastName, String firstName, LocalDate dateOfBirth, String gender, String address, String phone) {
         this.lastName = lastName;
         this.firstName = firstName;

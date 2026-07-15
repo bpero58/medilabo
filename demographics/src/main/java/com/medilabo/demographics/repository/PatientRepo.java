@@ -12,7 +12,6 @@ import java.util.Optional;
 @Repository
 public interface PatientRepo extends JpaRepository<Patient, Long> {
     // --- View Patient Personal Information ---
-    //TODO add a cache here make sure that ONLY the data needed for each specific enpoint is called
 
     // Find a single patient by ID
     Optional<Patient> findById(Long id);
