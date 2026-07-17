@@ -5,50 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="86a029f3-a3b0-4431-90ed-0163f4177507" name="Changes" comment="&quot;Added UI&quot;">
-      <change afterPath="$PROJECT_DIR$/apigateway/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apigateway/src/main/java/com/medilabo/apigateway/config/InMemoryUserStore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assessment/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assessment/src/main/java/com/medilabo/assessment/client/NoteClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assessment/src/main/java/com/medilabo/assessment/client/PatientClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assessment/src/main/java/com/medilabo/assessment/config/AppConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assessment/src/main/java/com/medilabo/assessment/controller/RiskAssessmentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assessment/src/main/java/com/medilabo/assessment/dto/NoteDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assessment/src/main/java/com/medilabo/assessment/dto/PatientDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assessment/src/main/java/com/medilabo/assessment/model/RiskLevel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assessment/src/main/java/com/medilabo/assessment/security/AuthTokenFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assessment/src/main/java/com/medilabo/assessment/security/JwtUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assessment/src/main/java/com/medilabo/assessment/security/WebSecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assessment/src/main/java/com/medilabo/assessment/service/AgeCalculatorService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assessment/src/main/java/com/medilabo/assessment/service/RiskCalculatorService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assessment/src/main/java/com/medilabo/assessment/service/TriggerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demographics/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demographics/src/main/java/com/medilabo/demographics/security/AuthTokenFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demographics/src/main/java/com/medilabo/demographics/security/JwtUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demographics/src/main/java/com/medilabo/demographics/security/WebSecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes/src/main/java/com/medilabo/notes/debug/EnvDebugger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes/src/main/java/com/medilabo/notes/security/AuthTokenFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes/src/main/java/com/medilabo/notes/security/JwtUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes/src/main/java/com/medilabo/notes/security/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apigateway/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assessment/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demographics/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlaskUI/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/FlaskUI/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apigateway/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/apigateway/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apigateway/src/main/java/com/medilabo/apigateway/config/DataSeeder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apigateway/src/main/java/com/medilabo/apigateway/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/apigateway/src/main/java/com/medilabo/apigateway/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apigateway/src/main/java/com/medilabo/apigateway/jwt_demo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/apigateway/src/main/java/com/medilabo/apigateway/jwt_demo/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apigateway/src/main/java/com/medilabo/apigateway/service/CustomerUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/apigateway/src/main/java/com/medilabo/apigateway/service/CustomerUserDetailsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apigateway/src/main/java/com/medilabo/apigateway/userrepo/UserRepository.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/apigateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/apigateway/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demographics/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/demographics/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demographics/src/main/java/com/medilabo/demographics/controllers/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demographics/src/main/java/com/medilabo/demographics/controllers/PatientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demographics/src/main/java/com/medilabo/demographics/domain/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/demographics/src/main/java/com/medilabo/demographics/domain/Patient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demographics/src/main/java/com/medilabo/demographics/repository/PatientRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/demographics/src/main/java/com/medilabo/demographics/repository/PatientRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assessment/src/main/java/com/medilabo/assessment/client/NoteClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/assessment/src/main/java/com/medilabo/assessment/client/NoteClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assessment/src/main/java/com/medilabo/assessment/controller/RiskAssessmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/assessment/src/main/java/com/medilabo/assessment/controller/RiskAssessmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assessment/src/main/java/com/medilabo/assessment/security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/assessment/src/main/java/com/medilabo/assessment/security/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assessment/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/assessment/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demographics/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/demographics/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/notes/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/src/main/java/com/medilabo/notes/model/Note.java" beforeDir="false" afterPath="$PROJECT_DIR$/notes/src/main/java/com/medilabo/notes/model/Note.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/src/main/java/com/medilabo/notes/controller/NoteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/notes/src/main/java/com/medilabo/notes/controller/NoteController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notes/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/notes/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -145,6 +113,7 @@
     &quot;Gradle.Build assessment.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.Build demographics.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.Build notes.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.Tests in 'demographics.test'.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.apigateway [:com.medilabo.apigateway.hashes.PasswordHashing.main()].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.apigateway [build].executor&quot;: &quot;Run&quot;,
@@ -176,7 +145,7 @@
     &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Spring Boot.NotesApplication">
+  <component name="RunManager" selected="Spring Boot.AssessmentApplication">
     <configuration name="assessment [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -291,10 +260,10 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.NotesApplication" />
         <item itemvalue="Spring Boot.AssessmentApplication" />
-        <item itemvalue="Spring Boot.ApigatewayApplication" />
+        <item itemvalue="Spring Boot.NotesApplication" />
         <item itemvalue="Spring Boot.DemographicsApplication" />
+        <item itemvalue="Spring Boot.ApigatewayApplication" />
         <item itemvalue="Gradle.assessment [build]" />
       </list>
     </recent_temporary>

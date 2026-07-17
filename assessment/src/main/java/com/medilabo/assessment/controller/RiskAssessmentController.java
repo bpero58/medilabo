@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
@@ -35,7 +36,7 @@ public class RiskAssessmentController {
     }
 
     @GetMapping("/{patientId}")
-    public ResponseEntity<String> assessRisk(@PathVariable Long patientId,
+    public ResponseEntity<Map<String, String>> assessRisk(@PathVariable Long patientId,
                                              @RequestHeader("Authorization") String authHeader) {
 
         String jwtToken = authHeader.replace("Bearer ", "");
@@ -52,7 +53,8 @@ public class RiskAssessmentController {
 
         RiskLevel risk = riskCalculatorService.calculateRisk(age, patient.getGender(), triggerCount);
 
-        return ResponseEntity.ok(risk.toString());
+//        return ResponseEntity.ok(risk.toString());
+        return ResponseEntity.ok(Map.of("risk", risk.toString()));
     }
 }
 

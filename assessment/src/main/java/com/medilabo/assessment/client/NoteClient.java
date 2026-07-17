@@ -25,13 +25,17 @@ public class NoteClient {
 
     public List<NoteDto> getNotesForPatient(Long patientId, String jwtToken) {
         String url = gatewayUrl + "/api/notes/patient/" + patientId;
-
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Bearer " + jwtToken);
         HttpEntity<Void> entity = new HttpEntity<>(headers);
 
-        NoteDto[] notes = restTemplate.exchange(url, HttpMethod.GET, entity, NoteDto[].class).getBody();
-        return notes != null ? Arrays.asList(notes) : List.of();
+        try {
+            NoteDto[] notes = restTemplate.exchange(url, HttpMethod.GET, entity, NoteDto[].class).getBody();
+            return notes != null ? Arrays.asList(notes) : List.of();
+        } catch (Exception e) {
+            System.out.println("Could not fetch notes: " + e.getMessage());
+            return List.of();
+        }
     }
 }
 
