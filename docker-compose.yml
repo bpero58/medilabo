@@ -1,34 +1,70 @@
-version: "3.8"
+version: "3.9"
 
 services:
-  springboot-app:
+  apigateway:
     build:
-      context: ./springboot-app
-    container_name: springboot-app
+      context: ./apigateway
+      dockerfile: Dockerfile
+    container_name: apigateway
     ports:
       - "8080:8080"
+    env_file:
+      - ./apigateway/.env
+    depends_on:
+      - demographics
+      - notes
+      - frontend-service
+      - assessment
     networks:
-      - appnet
-    healthcheck:
-      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8080/actuator/health"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+      - app-network
 
-  flask-ui:
+  demographics:
     build:
-      context: ./flask-ui
-    container_name: flask-ui
+      context: ./demographics
+      dockerfile: Dockerfile
+    container_name: demographics
+    ports:
+      - "8081:8081"
+    env_file:
+      - ./demographics/.env
+    networks:
+      - app-network
+
+  notes:
+    build:
+      context: ./notes
+      dockerfile: Dockerfile
+    container_name: notes
+    ports:
+      - "8082:8082"
+    env_file:
+      - ./notes/.env
+    networks:
+      - app-network
+
+  frontend-service:
+    build:
+      context: ./FlaskUI
+      dockerfile: Dockerfile
+    container_name: frontend-service
     ports:
       - "5000:5000"
-    environment:
-      - SPRINGBOOT_URL=http://springboot-app:8080
-    depends_on:
-      springboot-app:
-        condition: service_healthy
     networks:
-      - appnet
+      - app-network
+
+  assessment:
+    build:
+      context: ./assessment
+      dockerfile: Dockerfile
+    container_name: assessment
+    ports:
+      - "8083:8083"
+    env_file:
+      - ./assessment/.env
+    networks:
+      - app-network
 
 networks:
-  appnet:
+  app-network:
     driver: bridge
+
