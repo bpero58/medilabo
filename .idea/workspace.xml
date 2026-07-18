@@ -5,19 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="86a029f3-a3b0-4431-90ed-0163f4177507" name="Changes" comment="&quot;Added UI&quot;">
-      <change afterPath="$PROJECT_DIR$/apigateway/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assessment/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demographics/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/9.0.0/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.0.0/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/9.0.0/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.0.0/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/apigateway.main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/apigateway.test.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/assessment.main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/assessment.test.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/notes.main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/notes.test.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apigateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/apigateway/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assessment/src/main/java/com/medilabo/assessment/client/NoteClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/assessment/src/main/java/com/medilabo/assessment/client/NoteClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assessment/src/main/java/com/medilabo/assessment/controller/RiskAssessmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/assessment/src/main/java/com/medilabo/assessment/controller/RiskAssessmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assessment/src/main/java/com/medilabo/assessment/security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/assessment/src/main/java/com/medilabo/assessment/security/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assessment/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/assessment/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demographics/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/demographics/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/src/main/java/com/medilabo/notes/controller/NoteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/notes/src/main/java/com/medilabo/notes/controller/NoteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/notes/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +26,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
     <projectState path="$PROJECT_DIR$/apigateway">
       <ProjectState />
     </projectState>
@@ -129,22 +133,36 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;Spring Boot.ApigatewayApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.AssessmentApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.DemographicsApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.NotesApplication.executor&quot;: &quot;Run&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
     &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="KtorApplicationConfigurationType" />
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
   <component name="RunManager" selected="Spring Boot.AssessmentApplication">
     <configuration name="assessment [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -175,7 +193,7 @@
       <option name="envFilePaths">
         <option value="$PROJECT_DIR$/apigateway/.env" />
       </option>
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UnknownPolicyInFreeMode" />
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="apigateway.main" />
       <selectedOptions>
         <option name="environmentVariables" />
@@ -215,7 +233,7 @@
       <option name="envFilePaths">
         <option value="$PROJECT_DIR$/demographics/.env" />
       </option>
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UnknownPolicyInFreeMode" />
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="demographics.main" />
       <selectedOptions>
         <option name="environmentVariables" />
@@ -235,7 +253,7 @@
       <option name="envFilePaths">
         <option value="$PROJECT_DIR$/notes/.env" />
       </option>
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UnknownPolicyInFreeMode" />
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="notes.main" />
       <selectedOptions>
         <option name="environmentVariables" />
@@ -271,7 +289,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.31033.145" />
+        <option value="bundled-jdk-30f59d01ecdd-63390994e64e-intellij.indexing.shared.core-IU-262.8665.258" />
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-IU-262.8665.258" />
       </set>
     </attachedChunks>
   </component>
@@ -293,6 +312,23 @@
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-core" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.security:spring-security-core" />
+    <option featureType="dependencySupport" implementationName="executable:docker" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.validation:jakarta.validation-api" />
+    <option featureType="dependencySupport" implementationName="java:io.projectreactor:reactor-core" />
+    <option featureType="dependencySupport" implementationName="executable:kubectl" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.data:spring-data-commons" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.cloud:spring-cloud-context" />
+    <option featureType="dependencySupport" implementationName="java:org.hibernate.validator:hibernate-validator" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-webmvc" />
+    <option featureType="dependencySupport" implementationName="java:org.projectlombok:lombok" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

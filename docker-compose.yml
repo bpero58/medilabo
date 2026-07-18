@@ -30,6 +30,20 @@ services:
     networks:
       - app-network
 
+  postgres-demographics:
+    image: postgres:16
+    container_name: postgres-demographics
+    environment:
+      POSTGRES_DB: my_database
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: bcwestern56
+    ports:
+      - "5433:5432"
+    volumes:
+      - demographics-data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
   notes:
     build:
       context: ./notes
@@ -68,3 +82,5 @@ networks:
   app-network:
     driver: bridge
 
+volumes:
+  demographics-data:

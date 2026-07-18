@@ -7,8 +7,12 @@
         <processorPath useClasspath="false">
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.46/a5cfe99fdf320e84955ef653f2ce1bf789d11385/lombok-1.18.46.jar" />
         </processorPath>
-        <module name="apigateway.test" />
-        <module name="apigateway.main" />
+        <module name="medilabo.notes.test" />
+        <module name="medilabo.apigateway.main" />
+        <module name="medilabo.demographics.main" />
+        <module name="medilabo.apigateway.test" />
+        <module name="medilabo.notes.main" />
+        <module name="medilabo.demographics.test" />
       </profile>
     </annotationProcessing>
   </component>
@@ -23,6 +27,15 @@
       <module name="demographics" options="-parameters" />
       <module name="demographics.main" options="-parameters" />
       <module name="demographics.test" options="-parameters" />
+      <module name="medilabo.apigateway" options="-parameters" />
+      <module name="medilabo.apigateway.main" options="-parameters" />
+      <module name="medilabo.apigateway.test" options="-parameters" />
+      <module name="medilabo.demographics" options="-parameters" />
+      <module name="medilabo.demographics.main" options="-parameters" />
+      <module name="medilabo.demographics.test" options="-parameters" />
+      <module name="medilabo.notes" options="-parameters" />
+      <module name="medilabo.notes.main" options="-parameters" />
+      <module name="medilabo.notes.test" options="-parameters" />
       <module name="notes" options="-parameters" />
       <module name="notes.main" options="-parameters" />
       <module name="notes.test" options="-parameters" />

@@ -4,6 +4,18 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="ms-21" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/apigateway" />
+            <option value="$PROJECT_DIR$/demographics" />
+            <option value="$PROJECT_DIR$/notes" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/apigateway" />
         <option name="gradleJvm" value="ms-21" />
         <option name="modules">
@@ -22,7 +34,7 @@
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/demographics" />
-        <option name="gradleJvm" value="C:\Users\BPERO\.jdks\openjdk-17.0.x" />
+        <option name="gradleJvm" value="ms-21" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/demographics" />
@@ -31,11 +43,11 @@
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/gateway" />
-        <option name="gradleJvm" value="C:\Users\BPERO\.jdks\openjdk-17.0.x" />
+        <option name="gradleJvm" value="ms-21" />
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/notes" />
-        <option name="gradleJvm" value="C:\Users\BPERO\.jdks\openjdk-17.0.x" />
+        <option name="gradleJvm" value="ms-21" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/notes" />
